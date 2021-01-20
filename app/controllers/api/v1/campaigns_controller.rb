@@ -13,6 +13,15 @@ module Api
                 render json: {status: 'SUCCESS', message:'Loaded campaign', data:@campaign}, status: :ok 
             end
       
+            def create
+                campaign = Campaign.new(campaign_params)
+
+                if campaign.save
+                    render json: campaign, status: :created
+                else
+                    render json: campaign.errors, status: :unprocessable_entity
+                end   
+            end
 
 
 
