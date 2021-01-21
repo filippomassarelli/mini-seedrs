@@ -5,23 +5,28 @@ module Api
             before_action :find_campaign, only: [:show, :update, :destroy]
 
             def index
-                campaigns = Campaign.order('created_at DESC');
-                render json: {status: 'SUCCESS', message:'Loaded campaigns', data:campaigns}, status: :ok 
+
+                campaigns = Campaign.all
+
+                render json: CampaignsRepresenter.new(campaigns).as_json
+
+                # campaigns = Campaign.order('created_at DESC');
+                # render json: {status: 'SUCCESS', message:'Loaded campaigns', data:campaigns}, status: :ok 
             end
 
             def show
                 render json: {status: 'SUCCESS', message:'Loaded campaign', data:@campaign}, status: :ok 
             end
       
-            def create
-                campaign = Campaign.new(campaign_params)
+            # def create
+            #     campaign = Campaign.new(campaign_params)
 
-                if campaign.save
-                    render json: campaign, status: :created
-                else
-                    render json: campaign.errors, status: :unprocessable_entity
-                end   
-            end
+            #     if campaign.save
+            #         render json: campaign, status: :created
+            #     else
+            #         render json: campaign.errors, status: :unprocessable_entity
+            #     end   
+            # end
 
 
 

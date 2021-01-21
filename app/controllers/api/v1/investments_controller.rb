@@ -13,10 +13,16 @@ module Api
         # Here we need to definie the a the controller actions for each route
      
             def create
+                # binding.irb
+     
                 investment = Investment.new(investment_params)
+                # campaign = Campaign.find(id=investment[:campaign_id])
+                
 
                 if investment.save
                     render json: investment, status: :created
+
+
                 else
                     render json: investment.errors, status: :unprocessable_entity
                 end   
@@ -27,6 +33,7 @@ module Api
 
             def investment_params
                 params.permit(
+                    :campaign_id,
                     :user_name, 
                     :investment_amount, 
                     :currency
