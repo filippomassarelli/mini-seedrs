@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_072932) do
+ActiveRecord::Schema.define(version: 2021_01_21_162121) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_072932) do
     t.float "target_amount"
     t.string "sector"
     t.string "country"
-    t.float "investment_multiple"
+    t.decimal "investment_multiple"
     t.boolean "open"
     t.string "currency"
     t.datetime "created_at", precision: 6, null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_072932) do
 
   create_table "investments", force: :cascade do |t|
     t.string "user_name"
-    t.float "investment_amount"
+    t.decimal "investment_amount"
     t.string "currency"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
