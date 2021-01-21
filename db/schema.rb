@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_20_131710) do
+ActiveRecord::Schema.define(version: 2021_01_21_072932) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string "name"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 2021_01_20_131710) do
     t.string "currency"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "campaign_id", null: false
+    t.index ["campaign_id"], name: "index_investments_on_campaign_id"
   end
 
+  add_foreign_key "investments", "campaigns"
 end
