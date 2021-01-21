@@ -5,15 +5,18 @@ module Api
             # Here we need to definie the a the controller actions for each route
              
             def create
-                # binding.irb
      
                 investment = Investment.new(investment_params)
-                
 
-                if investment.save
+                # binding.irb
+
+                if investment.currency != 'GBP'
+
+                    render json: {status: 'ERROR 406', message:'Invalid investment: currency must be GBP', data:investment.currency}, status: :not_acceptable 
+                
+                elsif investment.save
 
                     render json: investment, status: :created
-
 
                 else
                     render json: investment.errors, status: :unprocessable_entity
@@ -24,12 +27,12 @@ module Api
             private
 
             def investment_params
-                params.permit(
-                    :campaign_id,
-                    :user_name, 
-                    :investment_amount, 
-                    :currency
-                )
+                params.require(:investment).permit(
+                        :campaign_id,
+                        :user_name, 
+                        :investment_amount, 
+                        :currency
+                    )
             end
 
         end

@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pp'
 
 describe 'Investments API', type: :request do
 
@@ -20,16 +21,14 @@ describe 'Investments API', type: :request do
 
             post '/api/v1/investments', params: {
                 investment: {
-                    campaign: "#{campaign.id}",
+                    campaign_id: "#{campaign.id}",
                     user_name: "Filippo",
-                    investment_amount: 200,
+                    investment_amount: 200000,
                     currency: 'GBP'
                 }
             }
-
+            # pp "Hey man this is the response: #{response}"
             expect(response).to have_http_status(:created)
         end
     end
-
-
 end

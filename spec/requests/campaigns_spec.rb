@@ -26,16 +26,16 @@ describe 'Campaigns API', type: :request do
             get '/api/v1/campaigns'
 
             expect(response).to have_http_status(:success)
-            expect(response.body).to include("data")
-            expect(JSON.parse(response.body)["data"].size).to eq(2)
+            expect(JSON.parse(response.body).size).to eq(2)
         end
     end
+    
 
     describe 'GET /campaign' do
 
-# Before this test also create dummy data 
-# let allows you to define variables outside the it block, thus making the actual test implementation small (easier to read)
-# bang (!) ensures that when the test first starts there is one campaign in the database
+        # Before this test also create dummy data 
+        # let allows you to define variables outside the it block, thus making the actual test implementation small (easier to read)
+        # bang (!) ensures that when the test first starts there is one campaign in the database
 
         let!(:campaign) { Campaign.create({
             name: Faker::Company.name,
@@ -48,13 +48,9 @@ describe 'Campaigns API', type: :request do
             currency: 'GBP',
             open: Faker::Boolean.boolean(true_ratio: 0.75)
         })}    
-
     
         it 'returns one campaign of given id' do
             get "/api/v1/campaigns/#{campaign.id}"
-    # instead of hard coding the id (which can break in the future as tests become more complicated)
-    # use interpolation taking id of the test data variable created in the let block
-    # string interpolation requires double quotes
             expect(response).to have_http_status(:success)
         end
     end
