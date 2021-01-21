@@ -1,24 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Show User**
+----
+  Returns json data about a single user.
 
-Things you may want to cover:
+* **URL**
 
-* Ruby version
+  /users/:id
 
-* System dependencies
+* **Method:**
 
-* Configuration
+  `GET`
+  
+*  **URL Params**
 
-* Database creation
+   **Required:**
+ 
+   `id=[integer]`
 
-* Database initialization
+* **Data Params**
 
-* How to run the test suite
+  None
 
-* Services (job queues, cache servers, search engines, etc.)
+* **Success Response:**
 
-* Deployment instructions
+  * **Code:** 200 <br />
+    **Content:** `{ id : 12, name : "Michael Bloom" }`
+ 
+* **Error Response:**
 
-* ...
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "User doesn't exist" }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "You are unauthorized to make this request." }`
+
+* **Sample Call:**
+
+  ```javascript
+    $.ajax({
+      url: "/users/1",
+      dataType: "json",
+      type : "GET",
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```
