@@ -22,6 +22,10 @@ module Api
                     
                     render json: {status: 'ERROR 403', message:"Invalid investment: investment amount is not a multiple of #{Campaign.find(id=investment.campaign_id).investment_multiple}", data:investment.investment_amount}, status: :forbidden 
 
+                elsif !(Campaign.find(id=investment.campaign_id).open)
+                    
+                    render json: {status: 'ERROR 406', message:"Invalid investment: Sorry, this campaign is no longer open for investment.", data:Campaign.find(id=investment.campaign_id).open}, status: :not_acceptable 
+
                 elsif investment.save
 
                     render json: investment, status: :created

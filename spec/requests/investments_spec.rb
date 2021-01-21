@@ -13,7 +13,7 @@ describe 'Investments API', type: :request do
             country: Faker::Address.country,
             investment_multiple: Faker::Number.decimal(l_digits: 1, r_digits: 2),
             currency: 'GBP',
-            open: Faker::Boolean.boolean(true_ratio: 0.75)
+            open: true
         })}    
 
         it 'creates a new investment with a good request' do
@@ -68,5 +68,33 @@ describe 'Investments API', type: :request do
             expect(response).to have_http_status(:forbidden)
         end
 
+    end
+
+    describe 'POST /investments' do
+
+        let!(:campaign) { Campaign.create({
+            name: Faker::Company.name,
+            image: Faker::Company.logo,
+            percentage_raised: Faker::Number.between(from: 20, to: 200),
+            target_amount: Faker::Number.decimal(l_digits: 6, r_digits: 2),
+            sector: Faker::Company.industry,
+            country: Faker::Address.country,
+            investment_multiple: Faker::Number.decimal(l_digits: 1, r_digits: 2),
+            currency: 'GBP',
+            open: false
+        })}   
+
+        it 'invalidates the investment if the campaign is closed' do
+
+            post '/api/v1/investments', params: {
+                investment: {
+                    campaign_id: "#{campaign.id}",
+                    user_name: "Filippo",
+                    investment_amount: campaign.investment_multiple,
+                    currency: 'GBP'
+                }
+            }
+            expect(response).to have_http_status(:not_acceptable)
+        end
     end
 end
