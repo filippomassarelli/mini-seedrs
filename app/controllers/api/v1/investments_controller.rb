@@ -24,14 +24,14 @@ module Api
 
                 elsif !(Campaign.find(id=investment.campaign_id).open)
                     
-                    render json: {status: 'ERROR 406', message:"Invalid investment: Sorry, this campaign is no longer open for investment.", data:Campaign.find(id=investment.campaign_id).open}, status: :not_acceptable 
+                    render json: {status: 'ERROR 406', message:"Invalid investment: Sorry, this campaign is no longer open for investment", data:Campaign.find(id=investment.campaign_id).open}, status: :not_acceptable 
 
                 elsif investment.save
 
-                    render json: investment, status: :created
+                    render json: {status: 'SUCCESS 201', message:"Valid investment: Thank you for supporting the wonderful!", data:investment}, status: :created
 
                 else
-                    render json: investment.errors, status: :unprocessable_entity
+                    render json: {status: 'ERROR 422', data: investment.errors}, status: :unprocessable_entity
                 end   
             end
 
