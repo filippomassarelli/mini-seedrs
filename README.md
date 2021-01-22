@@ -117,8 +117,8 @@ The Campaign API allows you to access the following data for all campaigns:
 *
 
 For single campaigns the Campaign API will also allow you to access:
-* `investment_count :integer`: The number of valid investments made for that campaign.
-* `is_open :boolean`: A statement indicating whether the campaign is currently open for investment.
+* **investment_count** (:integer) - The number of valid investments made for that campaign.
+* **is_open** (:boolean) - A statement indicating whether the campaign is currently open for investment.
 
 ### Request
 
