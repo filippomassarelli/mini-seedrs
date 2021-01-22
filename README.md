@@ -1,4 +1,64 @@
-# README
+# MiniSeedrs
+
+## Overview
+
+MiniSeedrs allows you to easily invest in business you believe in. Build your application to connect to our investment platform through our:
+
+* **Campaigns API** - instant access to investment opportunities
+* **Investment API** - instant investment initiation
+
+Our products provide an unified interface between our investment platform and third party applications over a common [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer).
+
+## Getting started
+
+### Installation
+
+To get started with the app, first clone the repo and `cd` into the directory:
+
+```
+$ git https://github.com/filippomassarelli/mini-seedrs.git 
+$ cd mini-seedrs
+```
+
+Then install the gems required:
+
+```
+$ bundle install
+```
+
+Make sure the database is created:
+
+```
+$ rails db:create
+```
+
+Next, migrate the schema:
+
+```
+$ rails db:migrate
+```
+
+And load the initial data:
+
+```
+$ rails db:seed
+```
+
+Finally, run the test suite to verify that everything is working correctly:
+
+```
+$ rspec
+```
+
+If the test suite passes, you'll be ready to run the app in a local server:
+
+```
+$ rails server
+```
+
+
+
+
 
 **Show User**
 ----
