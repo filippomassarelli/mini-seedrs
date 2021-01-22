@@ -110,15 +110,19 @@ The Mini Seedrs Campaign API is a single interface to access current and past in
 
 ### Available data
 
-The Campaign API allows you to access the following data for all campaigns:
-*
-*
-*
-*
+The Campaign API allows you to access the following data for when listing all campaigns:
+* **id** (integer): The unique id for the campaign
+* **name** (string): The name of the business running the campaign
+* **image** (string): The url path of the logo of the business
+* **percentage_raised** (float): The percentage raised based on the investment target
+* **target_amount** (float): The investment target of the campaign 
+* **sector** (string): The industry sector in which the business operates
+* **country** (string): The country where the business is based
+* **investment_multiple** (decimal): The investment multiple for the campaign to accepting new investment
 
 For single campaigns the Campaign API will also allow you to access:
-* **investment_count** (:integer) - The number of valid investments made for that campaign.
-* **is_open** (:boolean) - A statement indicating whether the campaign is currently open for investment.
+* **investment_count** (integer): The number of valid investments made for that campaign
+* **is_open** (boolean): A statement indicating whether the campaign is currently open for investment
 
 ### Request
 
@@ -130,6 +134,8 @@ For single campaigns the Campaign API will also allow you to access:
 ## Investment API
 
 ### Overview
+
+The Mini Seedrs Investment API brings the investment functionality to our platform. Using the API, you can execute investments to any campaign that is open for investment on our platform.
 
 ### Available data
 
