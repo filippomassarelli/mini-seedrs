@@ -126,12 +126,12 @@ Port 3000 is used by default.
 
 ### Errors
 
-If your investment is invalid you will not receive a 201 - Created status code back as a response. 
+If your investment is invalid you will not receive a **201 - Created** status code back as a response. 
 
-Instead you will one of the 4XX Client Error codes below:
+Instead you will receive one of the **4XX - Client Error** codes below:
 
 | HTTP Status Code | Description |
-| --- | --- |
+| --- | ---- |
 | 403 - Forbidden | The investment amount did not respect the campaign's investment multiple |
 | 404 - Not Found | The campaign id was not found |
 | 406 - Not Acceptable | The investment was rejected, either because the investment was not in GBP or because the campaign was closed |
