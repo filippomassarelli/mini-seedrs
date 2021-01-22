@@ -16,7 +16,7 @@ Our products provide an unified interface between our investment platform and th
 To get started with the app, first open your terminal, clone the repo and `cd` into the directory:
 
 ```
-git clone https://github.com/filippomassarelli/mini-seedrs.git 
+git clone https://github.com/filippomassarelli/mini-seedrs.git --master
 cd mini-seedrs
 ```
 
