@@ -168,12 +168,32 @@ The Campaign API v1 supports only the `READ` functionality:
 
 #### Params
 
-The **GET** request does not require body params to be specified nor a header.
+##### Path parameters
 
-In order to access single campaign records however, the campaign id is needed as **URI params** as such:
+V1 of the Campaign API allows you to retrieve a specific campaign, and perform a few predetermined filtering and sorting actions using path parameters to be added to the base URL.
+
+| Path | Description |
+| --- | ---- |
+| `/{campaign_id}` | Retrieve single campaign of specified id |
+| `/open` | Retrieve only campaigns that are open for investment |
+| `/target_desc` | Sort all campaigns by their target amount in descending order |
+| `/target_asc` | Sort all campaigns by their target amount in ascending order |
+| `/open_and_target_desc` | Sort open campaigns by their target amount in descending order |
+| `/open_and_target_asc` | Sort open campaigns by their target amount in ascending order |
+
+For example
 ```
-http://localhost:3000/api/v1/campaigns/{campaign_id}
+
 ```
+
+##### Query parameters
+
+For greater control, V1 also supports query paramenters to filter all campaigns above or below a specified target amount.
+
+| Query | Description |
+| --- | ---- |
+| `?target_above={target_amount}` | Retrieve campaigns with targets above the specified amount |
+| `?target_below={target_amount}` | Retrieve campaigns with targets below the specified amount |
 
 
 #### Example request
@@ -183,9 +203,19 @@ We can use cURL to request all campaigns:
 curl http://localhost:3000/api/v1/campaigns
 ```
 
-If we want to request only the campaign with id of 5:
+Or only the campaign with id of 5:
 ```
 curl http://localhost:3000/api/v1/campaigns/5
+```
+
+If we want to filter out campaigns that are closed and sort the results in descending order according to their campaign's investment target:
+```
+curl http://localhost:3000/api/v1/campaigns/open_and_target_desc
+```
+
+And if we are only interested in campaigns that are looking for more than £500k:
+```
+curl http://localhost:3000/api/v1/campaigns?target_above=500000
 ```
 
 
@@ -193,7 +223,7 @@ curl http://localhost:3000/api/v1/campaigns/5
 
 #### Success
 
-A successful request for all campaigns should be followed by a response similar to:
+When requesting multiple campaigns, a successful response would be similar to:
 ```json
 [
  {
@@ -217,7 +247,7 @@ A successful request for all campaigns should be followed by a response similar 
 ]
 ```
 
-Whereas following a successful request for a single campaign you should expect:
+Whereas for a single campaign you should expect:
 ```json
 {
  "id":5,
