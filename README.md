@@ -18,35 +18,35 @@ Thank you supporting the next generation of businesses !
 ### Contents
 
 - [Get started](#get-started)
- * [Prerequisites](#prerequisites)
- * [Install](#install)
- * [Test](#test)
- * [Run](#run)
+  * [Prerequisites](#prerequisites)
+  * [Install](#install)
+  * [Test](#test)
+  * [Run](#run)
   
 - [Campaign API](#campaign-api)
- * [Overview](#overview-1)
- * [Available data](#available-data)
- * [Request](#request)
-  + [API endpoint](#api-endpoint)
-  + [HTTP verbs](#http-verbs)
-  + [Params](#params)
-  + [Example request](#example-request)
- * [Response](#response)   
-  + [Success](#success)
-  + [Error](#error)
+  * [Overview](#overview-1)
+  * [Available data](#available-data)
+  * [Request](#request)
+    + [API endpoint](#api-endpoint)
+    + [HTTP verbs](#http-verbs)
+    + [Params](#params)
+    + [Example request](#example-request)
+  * [Response](#response)   
+    + [Success](#success)
+    + [Error](#error)
   
 
 - [Investment API](#investment-api)
- * [Overview](#overview-2)
- * [Available data](#available-data-1)
- * [Request](#request-1)
-  + [API endpoint](#api-endpoint-1)
-  + [HTTP verbs](#http-verbs-1)
-  + [Params](#params-1)
-  + [Example request](#example-request-1)
- * [Response](#response-1)
-  + [Success](#success-1)
-  + [Error](#error-1)
+  * [Overview](#overview-2)
+  * [Investment conditions](#investment-conditions)
+  * [Request](#request-1)
+    + [API endpoint](#api-endpoint-1)
+    + [HTTP verbs](#http-verbs-1)
+    + [Params](#params-1)
+    + [Example request](#example-request-1)
+  * [Response](#response-1)
+    + [Success](#success-1)
+    + [Error](#error-1)
 
 ---
 
@@ -231,7 +231,17 @@ Whereas following a successful request for a single campaign you should expect:
 
 #### Error
 
+Bad request will raise errors. These are most commonly due to either a typo in the base url, or an invalid campaign id for individual resource requests.
 
+In case of a typo you can expect:
+```
+"{status":404,"error":"Not Found","exception":"#\u003cActionController::RoutingError: No route matches ...
+```
+
+Wheras in case of an invalid campaign id:
+```
+{"status":404,"error":"Not Found","exception":"#\u003cActiveRecord::RecordNotFound: Couldn't find Campaign with 'id'= ...
+```
 
 ---
 
@@ -244,8 +254,16 @@ Whereas following a successful request for a single campaign you should expect:
 The Mini Seedrs Investment API brings the investment functionality to our platform. Using the API, you can execute investments to any campaign that is open for investment on our platform.
 
 
-### Available data
+### Investment conditions
 
+In order to successfully invest in a campaign through our Investment API, make sure to satify all of the following conditions:
+
+- [x] Specify a valid campaign_id
+- [x] Invest in GBP (British Pounds) only
+- [x] Ensure the campaign is open for investment
+- [x] Invest an amount that is a multiple of the campaign's investment multiple
+
+If one or more of the above conditions is not respected, your investment will be rejected and an appropriate `ERROR` message returned (see section [3.4.2 Error](#error-1) for more information).
 
 
 ### Request
@@ -293,7 +311,7 @@ curl --header "Content-Type: application/json" --request POST --data '{"user_nam
 
 If your request is successful you will receive a ```201``` ```Created``` status code back as an HTTP response. 
 
-The new investment is saved in the database and returned in the response. Thus you may expect:
+The new investment is saved in the database and returned in the response:
 ```
 {
  "status":"SUCCESS 201",
@@ -310,6 +328,8 @@ The new investment is saved in the database and returned in the response. Thus y
   }
 }
 ```
+
+:pencil2: Note that all valid investments are saved and their investment amounts contribute to their campaign's percentage raised.
 
 
 #### Error
