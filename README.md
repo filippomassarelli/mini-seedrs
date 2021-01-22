@@ -328,9 +328,9 @@ The new investment is saved in the database and returned in the response:
   }
 }
 ```
-::: warning
-:pencil2: Note that all valid investments are saved and their investment amounts contribute to their campaign's percentage raised.
-:::
+
+> :pencil2: Note that all valid investments are saved and their investment amounts contribute to their campaign's percentage raised.
+
 
 #### Error
 
