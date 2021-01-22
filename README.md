@@ -13,47 +13,47 @@ Our products provide an unified interface between our investment platform and th
 
 ### Installation
 
-To get started with the app, first clone the repo and `cd` into the directory:
+To get started with the app, first open your terminal, clone the repo and `cd` into the directory:
 
 ```
-$ git clone https://github.com/filippomassarelli/mini-seedrs.git 
-$ cd mini-seedrs
+git clone https://github.com/filippomassarelli/mini-seedrs.git 
+cd mini-seedrs
 ```
 
 Then install the gems required:
 
 ```
-$ bundle install
+bundle install
 ```
 
 Make sure the database is created:
 
 ```
-$ rails db:create
+rails db:create
 ```
 
 Next, migrate the schema:
 
 ```
-$ rails db:migrate
+rails db:migrate
 ```
 
 And load the initial data:
 
 ```
-$ rails db:seed
+rails db:seed
 ```
 
 Finally, run the test suite to verify that everything is working correctly:
 
 ```
-$ rspec
+rspec
 ```
 
 If the test suite passes, you'll be ready to run the app in a local server:
 
 ```
-$ rails server
+rails server
 ```
 
 
