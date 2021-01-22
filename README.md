@@ -23,17 +23,17 @@ Thank you supporting the next generation of businesses !
   * [Run](#run)
   
 - [Campaign API](#campaign-api)
-  * [overview](#overview-1)
+  * [Overview](#overview-1)
   * [Available data](#available-data)
-  * [Request](#requests)
+  * [Request](#request)
   * [Response](#response)
   * [Errors](#errors)
   
 
 - [Investment API](#investment-api)
-  * [overview](#overview-2)
+  * [Overview](#overview-2)
   * [Available data](#available-data-1)
-  * [Request](#requests-1)
+  * [Request](#request-1)
   * [Response](#response-1)
   * [Errors](#errors-1)
 
