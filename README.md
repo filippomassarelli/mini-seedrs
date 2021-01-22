@@ -151,7 +151,7 @@ The Campaign API v1 is **READ** only:
 | **GET** | Retrieve one or multiple resources |
 
 
-#### examples
+#### Example 
 
 We can use cURL to request all campaigns:
 ```
@@ -162,6 +162,7 @@ Or to request a specific campaign, with id of 5:
 ```
 curl http://localhost:3000/api/v1/campaigns/5
 ```
+
 
 ### Response
 
@@ -191,11 +192,10 @@ Following the request for all campaigns you should expect a response similar to:
 ```
 
 Whereas for the single campaign you shouls expect:
-```javascript
+```json
 {
  "id":5,
- "name":"Friesen,
- Mills and Wyman",
+ "name":"Friesen, Mills and Wyman",
  "image":"https://pigment.github.io/fake-logos/logos/medium/color/7.png","percentage_raised":"131.25","investment_count":2,"target_amount":293319.09,"sector":"Performing Arts",
  "country":"Panama",
  "investment_multiple":"7.43",
