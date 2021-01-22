@@ -23,7 +23,7 @@ Thank you supporting the next generation of businesses !
   * [Run](#run)
   
 - [Campaign API](#campaign-api)
-  * [overview](#overview)
+  * [overview](#overview-1)
   * [Available data](#available-data)
   * [Request](#requests)
   * [Response](#response)
@@ -31,7 +31,7 @@ Thank you supporting the next generation of businesses !
   
 
 - [Investment API](#investment-api)
-  * [overview](#overview)
+  * [overview](#overview-2)
   * [Available data](#available-data)
   * [Request](#requests)
   * [Response](#response)
