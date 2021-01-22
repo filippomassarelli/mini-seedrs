@@ -1,6 +1,8 @@
 # MiniSeedrs
 
-## Overview
+## Introduction
+
+### Overview
 
 MiniSeedrs allows you to easily invest in business you believe in. Build your application to connect to our investment platform through our:
 
@@ -8,6 +10,21 @@ MiniSeedrs allows you to easily invest in business you believe in. Build your ap
 * **Investment API** - instant investment initiation
 
 Our products provide an unified interface between our investment platform and third party applications over a common [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer).
+
+Make sure to read the installation guide and API documentation below. 
+
+Thank you supporting the next generation of businesses !
+
+### Contents
+
+- [Get started](#get-started)
+  * [Install](#install)
+  * [Test](#test)
+  * [Run](#run)
+    + [example indent 3]
+      
+
+
 
 ## Get started
 
