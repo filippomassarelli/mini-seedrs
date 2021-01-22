@@ -103,9 +103,22 @@ Port 3000 is used by default.
 
 ## Campaign API
 
-### overview
+### Overview
+
+The Mini Seedrs Campaign API is a single interface to access current and past investment opportunities (campaigns) on the Mini Seedrs investment platform.
+
 
 ### Available data
+
+The Campaign API allows you to access the following data for all campaigns:
+*
+*
+*
+*
+
+For single campaigns the Campaign API will also allow you to access:
+* `investment_count :integer`: The number of valid investments made for that campaign.
+* `is_open :boolean`: A statement indicating whether the campaign is currently open for investment.
 
 ### Request
 
@@ -116,7 +129,7 @@ Port 3000 is used by default.
 
 ## Investment API
 
-### overview
+### Overview
 
 ### Available data
 
@@ -132,8 +145,8 @@ Instead you will receive one of the **4XX - Client Error** codes below:
 
 | HTTP Status Code | Description |
 | --- | ---- |
-| 403 - Forbidden | The investment amount did not respect the campaign's investment multiple |
-| 404 - Not Found | The campaign id was not found |
-| 406 - Not Acceptable | The investment was rejected, either because the investment was not in GBP or because the campaign was closed |
-| 422 - Unprocessable Entity | The server was unable to process the contained instructions for reasons other than the above |
+| **403 - Forbidden** | The investment amount did not respect the campaign's investment multiple |
+| **404 - Not Found** | The campaign id was not found |
+| **406 - Not Acceptable** | The investment was rejected, either because the investment was not in GBP or because the campaign was closed |
+| **422 - Unprocessable Entity** | The server was unable to process the contained instructions for reasons other than the above |
 
