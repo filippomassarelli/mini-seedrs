@@ -1,10 +1,10 @@
-# MiniSeedrs
+# Mini Seedrs
 
 ## Introduction
 
 ### Overview
 
-MiniSeedrs allows you to easily invest in business you believe in. Build your application to connect to our investment platform through our:
+Mini Seedrs allows you to easily invest in business you believe in. Build your application to connect to our investment platform through our:
 
 * **Campaign API** - instant access to investment opportunities
 * **Investment API** - instant investment initiation
@@ -26,15 +26,25 @@ Thank you supporting the next generation of businesses !
   * [Overview](#overview-1)
   * [Available data](#available-data)
   * [Request](#request)
-  * [Response](#response)
-  * [Errors](#errors)
+   + [API endpoint](#api-endpoint)
+   + [HTTP verbs](#http-verbs)
+   + [Example request](#example-request)
+  * [Response](#response)   
+   + [Success](#success)
+   + [Error](#error)
+  * [Error](#errors)
   
 
 - [Investment API](#investment-api)
   * [Overview](#overview-2)
   * [Available data](#available-data-1)
   * [Request](#request-1)
+   + [API endpoint](#api-endpoint-1)
+   + [HTTP verbs](#http-verbs-1)
+   + [Example request](#example-request-1)
   * [Response](#response-1)
+   + [Success](#success-1)
+   + [Error](#error-1)
   * [Errors](#errors-1)
 
 
@@ -109,6 +119,8 @@ rails server
 
 Port 3000 is used by default.
 
+---
+
 
 ## Campaign API
 
@@ -151,7 +163,7 @@ The Campaign API v1 is **READ** only:
 | **GET** | Retrieve one or multiple resources |
 
 
-#### Example 
+#### Example request
 
 We can use cURL to request all campaigns:
 ```
@@ -166,8 +178,9 @@ curl http://localhost:3000/api/v1/campaigns/5
 
 ### Response
 
-Following the request for all campaigns you should expect a response similar to:
+#### Success
 
+A successful request for all campaigns should be followed by a response similar to:
 ```json
 [
  {
@@ -191,7 +204,7 @@ Following the request for all campaigns you should expect a response similar to:
 ]
 ```
 
-Whereas for the single campaign you shouls expect:
+Whereas following a successful request for a single campaign you should expect:
 ```json
 {
  "id":5,
@@ -203,8 +216,12 @@ Whereas for the single campaign you shouls expect:
 }
 ```
 
-### Errors
-  
+#### Error
+
+
+
+---
+
 
 ## Investment API
 
@@ -214,15 +231,30 @@ The Mini Seedrs Investment API brings the investment functionality to our platfo
 
 ### Available data
 
+
+
 ### Request
+
+#### API endpoint
+
+#### HTTP verbs
+
+#### Example request
+```
+curl --header "Content-Type: application/json" --request POST --data '{"user_name":"Filippo Massarelli", "investment_amount": 1000, "currency":"GBP", "campaign_id":5}' http://localhost:3000/api/v1/investments
+```
 
 ### Response
 
-### Errors
+#### Success
 
-If your investment is invalid you will not receive a ```201``` ```Created``` status code back as an HTTP response. 
+If your request is successful you will receive a ```201``` ```Created``` status code back as an HTTP response. 
 
-Instead you will receive one of the ```4XX``` ```Client Error``` codes below:
+Instead you will 
+
+#### Error
+
+If your investment is invalid you will receive one of the ```4XX``` ```Client Error``` codes below:
 
 | HTTP Status Code | Description |
 | --- | ---- |
@@ -230,4 +262,9 @@ Instead you will receive one of the ```4XX``` ```Client Error``` codes below:
 | ```404``` ```Not Found``` | The campaign id was not found |
 | ```406``` ```Not Acceptable``` | The investment was rejected, either because the investment was not in GBP or because the campaign was closed |
 | ```422``` ```Unprocessable Entity``` | The server was unable to process the contained instructions for reasons other than the above |
+
+
+
+
+
 
