@@ -32,10 +32,10 @@ Thank you supporting the next generation of businesses !
 
 - [Investment API](#investment-api)
   * [overview](#overview-2)
-  * [Available data](#available-data)
-  * [Request](#requests)
-  * [Response](#response)
-  * [Errors](#errors)
+  * [Available data](#available-data-1)
+  * [Request](#requests-1)
+  * [Response](#response-1)
+  * [Errors](#errors-1)
 
 
 
