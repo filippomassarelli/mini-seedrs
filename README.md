@@ -18,37 +18,37 @@ Thank you supporting the next generation of businesses !
 ### Contents
 
 - [Get started](#get-started)
-  * [Prerequisites](#prerequisites)
-  * [Install](#install)
-  * [Test](#test)
-  * [Run](#run)
+ * [Prerequisites](#prerequisites)
+ * [Install](#install)
+ * [Test](#test)
+ * [Run](#run)
   
 - [Campaign API](#campaign-api)
-  * [Overview](#overview-1)
-  * [Available data](#available-data)
-  * [Request](#request)
-   + [API endpoint](#api-endpoint)
-   + [HTTP verbs](#http-verbs)
-   + [Params](#params)
-   + [Example request](#example-request)
-  * [Response](#response)   
-   + [Success](#success)
-   + [Error](#error)
+ * [Overview](#overview-1)
+ * [Available data](#available-data)
+ * [Request](#request)
+  + [API endpoint](#api-endpoint)
+  + [HTTP verbs](#http-verbs)
+  + [Params](#params)
+  + [Example request](#example-request)
+ * [Response](#response)   
+  + [Success](#success)
+  + [Error](#error)
   
 
 - [Investment API](#investment-api)
-  * [Overview](#overview-2)
-  * [Available data](#available-data-1)
-  * [Request](#request-1)
-   + [API endpoint](#api-endpoint-1)
-   + [HTTP verbs](#http-verbs-1)
-   + [Params](#params-1)
-   + [Example request](#example-request-1)
-  * [Response](#response-1)
-   + [Success](#success-1)
-   + [Error](#error-1)
-  * [Errors](#errors-1)
+ * [Overview](#overview-2)
+ * [Available data](#available-data-1)
+ * [Request](#request-1)
+  + [API endpoint](#api-endpoint-1)
+  + [HTTP verbs](#http-verbs-1)
+  + [Params](#params-1)
+  + [Example request](#example-request-1)
+ * [Response](#response-1)
+  + [Success](#success-1)
+  + [Error](#error-1)
 
+---
 
 
 ## Get started
@@ -136,16 +136,16 @@ The Mini Seedrs Campaign API is a single interface to access current and past in
 The Campaign API allows you to access the following data for when listing all campaigns:
 * `id` (integer): The unique id for the campaign
 * `name` (string): The name of the business running the campaign
-* **image** (string): The url path of the logo of the business
-* **percentage_raised** (float): The percentage raised based on the investment target
-* **target_amount** (float): The investment target of the campaign 
-* **sector** (string): The industry sector in which the business operates
-* **country** (string): The country where the business is based
-* **investment_multiple** (decimal): The investment multiple for the campaign to accepting new investment
+* `image` (string): The url path of the logo of the business
+* `percentage_raised` (float): The percentage raised based on the investment target
+* `target_amount` (float): The investment target of the campaign 
+* `sector` (string): The industry sector in which the business operates
+* `country` (string): The country where the business is based
+* `investment_multiple` (decimal): The investment multiple for the campaign to accepting new investment
 
 For single campaigns the Campaign API will also allow you to access:
-* **investment_count** (integer): The number of valid investments made for that campaign
-* **is_open** (boolean): A statement indicating whether the campaign is currently open for investment
+* `investment_count` (integer): The number of valid investments made for that campaign
+* `is_open` (boolean): A statement indicating whether the campaign is currently open for investment
 
 ### Request
 
@@ -314,7 +314,7 @@ The new investment is saved in the database and returned in the response. Thus y
 
 #### Error
 
-If your investment is invalid you will receive one of the ```4XX``` ```Client Error``` codes below:
+If your investment is invalid you will receive one of the ```4XX``` ```Client Error``` codes below, explaining the reason why.
 
 | HTTP Status Code | Description |
 | --- | ---- |
