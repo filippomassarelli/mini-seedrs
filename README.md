@@ -9,9 +9,9 @@ MiniSeedrs allows you to easily invest in business you believe in. Build your ap
 
 Our products provide an unified interface between our investment platform and third party applications over a common [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
-## Getting started
+## Get started
 
-### Installation
+### Install
 
 To get started with the app, first open your terminal, clone the repo and `cd` into the directory:
 
@@ -38,17 +38,23 @@ Next, migrate the schema:
 rails db:migrate
 ```
 
-And load the initial data:
+Finally, load the initial data:
 
 ```
 rails db:seed
 ```
 
-Finally, run the test suite to verify that everything is working correctly:
+### Test
+
+We use [RSpec](https://rspec.info/), a Ruby testing tool created for behavior-driven development (BDD). 
+
+Run the test suite to verify that everything is working correctly:
 
 ```
 rspec
 ```
+
+### Run
 
 If the test suite passes, you'll be ready to run the app in a local server:
 
@@ -56,7 +62,7 @@ If the test suite passes, you'll be ready to run the app in a local server:
 rails server
 ```
 
-
+Port 3000 is used by default.
 
 
 
