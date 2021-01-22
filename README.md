@@ -371,6 +371,9 @@ If your investment is invalid you will receive one of the ```4XX``` ```Client Er
 | ```422``` ```Unprocessable Entity``` | The server was unable to process the contained instructions for reasons other than the above. The error appearing in the server is passed in the response |
 
 
+---
+
+:point_up_2: [Back to the top](#mini-seedrs)
 
 
 
