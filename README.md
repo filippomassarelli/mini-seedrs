@@ -30,6 +30,8 @@ Thank you supporting the next generation of businesses !
     + [API endpoint](#api-endpoint)
     + [HTTP verbs](#http-verbs)
     + [Params](#params)
+      - [Path parameters](#path-parameters)
+      - [Query parameters](#query-parameters)
     + [Example request](#example-request)
   * [Response](#response)   
     + [Success](#success)
@@ -156,7 +158,6 @@ The local server is set to run on Port 3000 by default, and the api is versioned
 http://localhost:3000/api/v1/campaigns
 ```
 
-
 #### HTTP verbs
 
 The Campaign API v1 supports only the `READ` functionality:
@@ -181,10 +182,6 @@ V1 of the Campaign API allows you to retrieve a specific campaign, and perform a
 | `/open_and_target_desc` | Sort open campaigns by their target amount in descending order |
 | `/open_and_target_asc` | Sort open campaigns by their target amount in ascending order |
 
-For example
-```
-
-```
 
 ##### Query parameters
 
