@@ -115,6 +115,14 @@ Run the test suite to verify that everything is working correctly:
 ```
 rspec
 ```
+You should expect 7 tests to pass:
+```
+$ rspec
+.......
+
+Finished in 1.03 seconds (files took 1.77 seconds to load)
+7 examples, 0 failures
+```
 
 ### Run
 
