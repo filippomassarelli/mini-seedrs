@@ -115,13 +115,15 @@ Run the test suite to verify that everything is working correctly:
 ```
 rspec
 ```
-You should expect 7 tests to pass:
+
+You should expect 8 tests to pass:
+
 ```
 $ rspec
 .......
 
-Finished in 1.03 seconds (files took 1.77 seconds to load)
-7 examples, 0 failures
+Finished in 0.43225 seconds (files took 2.43 seconds to load)
+8 examples, 0 failures
 ```
 
 ### Run
@@ -306,6 +308,7 @@ In order to successfully invest in a campaign through our Investment API, make s
 - [x] Invest in GBP (British Pounds) only
 - [x] Ensure the campaign is open for investment
 - [x] Invest an amount that is a multiple of the campaign's investment multiple
+- [x] The amount you invest needs to be greater than zero ! 🤦‍♂️
 
 If one or more of the above conditions is not respected, your investment will be rejected and an appropriate `ERROR` message returned (see section [3.4.2 Error](#error-1) for more information).
 
@@ -375,12 +378,12 @@ The new investment is saved in the database and returned in the response:
 
 If your investment is invalid you will receive one of the `4XX` `Client Error` codes below, explaining the reason why.
 
-| HTTP Status Code             | Description                                                                                                                                                       |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `403` `Forbidden`            | The investment amount did not respect the campaign's investment multiple. For reference, the investment multiple of the campaign is returned in the error message |
-| `404` `Not Found`            | A campaign with the specified id does not exist                                                                                                                   |
-| `406` `Not Acceptable`       | The investment was rejected, either because the investment was not in GBP or because the campaign was no longer open. This is specified in the error message      |
-| `422` `Unprocessable Entity` | The server was unable to process the contained instructions for reasons other than the above. The error appearing in the server is passed in the response         |
+| HTTP Status Code             | Description                                                                                                                                                                                                                      |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `403` `Forbidden`            | The investment amount did not respect the campaign's investment multiple. For reference, the investment multiple of the campaign is returned in the error message                                                                |
+| `404` `Not Found`            | A campaign with the specified id does not exist                                                                                                                                                                                  |
+| `406` `Not Acceptable`       | The investment was rejected due to one of 3 reasons: (1) the investment currency was not GBP, (2) the investment amount was not greater than zero or (3) the campaign was no longer open. This is specified in the error message |
+| `422` `Unprocessable Entity` | The server was unable to process the contained instructions for reasons other than the above. The error appearing in the server is passed in the response                                                                        |
 
 ---
 
