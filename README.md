@@ -1,6 +1,6 @@
 # Mini Seedrs
 
-:whale: For the dockerized version see [docker-mini-seedrs](https://github.com/filippomassarelli/docker-mini-seedrs) 
+:whale: For the dockerized version see [docker-mini-seedrs](https://github.com/filippomassarelli/docker-mini-seedrs/blob/master/README.md#mini-seedrs-is-on-docker-) 
 
 ## Introduction
 
